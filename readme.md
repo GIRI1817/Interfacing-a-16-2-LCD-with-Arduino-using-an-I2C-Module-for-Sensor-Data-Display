@@ -1,10 +1,11 @@
-# EXP — INTERFACING A 16×2 LCD WITH ARDUINO USING AN I2C MODULE FOR SENSOR DATA DISPLAY
+# EXP 7 : INTERFACING A 16×2 LCD WITH ARDUINO USING AN I2C MODULE FOR SENSOR DATA DISPLAY
 
-## Aim 
+
+# AIM
 
 To interface a **16×2 LCD display with Arduino using an I2C module** and display sensor data on the LCD.
 
-## Objectives
+# Objectives
 
 - To understand the operation of a 16×2 LCD.
 - To interface the LCD with Arduino using an I2C module.
@@ -12,9 +13,9 @@ To interface a **16×2 LCD display with Arduino using an I2C module** and displa
 - To read sensor data using Arduino.
 - To display the sensor readings on the LCD.
 
-## Hardware / Software Tools Required
+# Hardware / Software Tools Required
 
-### Hardware
+# Hardware
 
 - Arduino UNO
 - 16×2 LCD Display
@@ -24,14 +25,14 @@ To interface a **16×2 LCD display with Arduino using an I2C module** and displa
 - Jumper wires
 - USB cable
 
-### Software
+# Software
 
 - Arduino IDE
 - Arduino C/C++ programming language
 - LiquidCrystal_I2C library
 - DHT sensor library
 
-## Components
+# Components
 
 ### 16×2 LCD
 ### I2C Module
@@ -47,10 +48,45 @@ To interface a **16×2 LCD display with Arduino using an I2C module** and displa
 6. The humidity is displayed on the second line.
 7. The readings are periodically updated.
 
-## Arduino Program
+# Arduino Program
+```
+#include <Adafruit_LiquidCrystal.h>
 
-## Observation
+// Connect via I2C, default address is usually 0 or 0x27 in Tinkercad
+Adafruit_LiquidCrystal lcd(0);
 
-## Result
+void setup() {
+  // Initialize the LCD display size
+  lcd.begin(16, 2);
+  
+  // Turn on the backlight
+  lcd.setBacklight(HIGH);
+  
+  // 1. Move cursor to column 0, row 0 (the top row)
+  lcd.setCursor(0, 0);
+  
+  // 2. Print your name here (Change "Your Name" to whatever you like!)
+  lcd.print("GIRI");
+}
+
+void loop() {
+  // Move cursor to column 0, row 1 (the second row)
+  lcd.setCursor(0, 1);
+  
+  // Print seconds elapsed
+  lcd.print("Time: ");
+  lcd.print(millis() / 1000);
+  
+  // Small delay to prevent the screen from flickering
+  delay(200); 
+}
+
+```
+
+# Output
+
+<img width="1902" height="1090" alt="Screenshot 2026-09-19 084435" src="https://github.com/user-attachments/assets/1bad17fb-6dcb-4f8e-ba75-da74e3057850" />
+
+# Result
 
 Thus, the **16×2 LCD was successfully interfaced with Arduino UNO using an I2C module**, and the temperature and humidity values obtained from the DHT11 sensor were successfully displayed on the LCD. The experiment demonstrates the use of **I2C communication for efficient sensor-data display** in embedded and IoT applications.
