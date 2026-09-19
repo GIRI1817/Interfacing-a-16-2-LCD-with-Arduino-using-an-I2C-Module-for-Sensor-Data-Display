@@ -89,4 +89,4 @@ void loop() {
 
 # Result
 
-Thus, the **16×2 LCD was successfully interfaced with Arduino UNO using an I2C module**, and the temperature and humidity values obtained from the DHT11 sensor were successfully displayed on the LCD. The experiment demonstrates the use of **I2C communication for efficient sensor-data display** in embedded and IoT applications.
+Thus, the **16×2 LCD was successfully interfaced with Arduino UNO using an I2C module**, and the name and timer were successfully displayed on the LCD. The experiment demonstrates the use of **I2C communication for efficient sensor-data display** in embedded and IoT applications.
